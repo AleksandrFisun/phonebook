@@ -12,7 +12,7 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/goit-react-hw-05-movies/" element={<SharedLayout />}>
+        <Route path="/" element={<SharedLayout />}>
           <Route
             index
             element={
@@ -22,7 +22,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/goit-react-hw-05-movies/movies"
+            path="/movies"
             element={
               <Suspense fallback={<h2>Loading ...</h2>}>
                 <Searchbar />
@@ -30,7 +30,7 @@ export const App = () => {
             }
           />
           <Route
-            path="/goit-react-hw-05-movies/movies/:movieId"
+            path="/movies/:movieId"
             element={
               <Suspense fallback={<h2>Loading ...</h2>}>
                 <MovieView />

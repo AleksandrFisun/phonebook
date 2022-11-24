@@ -9,7 +9,7 @@ export const SharedLayout = () => {
           <List>
             <li>
               <Link
-                to="/goit-react-hw-05-movies/"
+                to="/"
                 className={({ isActive }) => (isActive ? 'active' : '')}
               >
                 Home
@@ -17,7 +17,7 @@ export const SharedLayout = () => {
             </li>
             <li>
               <Link
-                to="/goit-react-hw-05-movies/movies"
+                to="/movies"
                 className={({ isActive }) => (isActive ? 'active' : '')}
               >
                 Movies

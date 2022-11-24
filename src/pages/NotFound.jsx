@@ -15,9 +15,7 @@ export default function NotFound() {
         />
         <TextStyled>
           Oooops, page not found
-          <NavLinkNotFound to="/goit-react-hw-05-movies/">
-            to Home
-          </NavLinkNotFound>
+          <NavLinkNotFound to="/">to Home</NavLinkNotFound>
         </TextStyled>
       </div>
     </DivStyled>

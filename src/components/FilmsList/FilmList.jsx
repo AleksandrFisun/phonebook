@@ -9,10 +9,7 @@ export const FilmList = ({ filmList }) => {
         {filmList.map(({ title, id, name, poster_path }) => {
           return (
             <li key={id} style={{ width: 200 }}>
-              <Link
-                to={`/goit-react-hw-05-movies/movies/${id}`}
-                state={{ from: location }}
-              >
+              <Link to={`/movies/${id}`} state={{ from: location }}>
                 <img
                   src={
                     poster_path

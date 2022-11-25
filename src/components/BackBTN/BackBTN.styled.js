@@ -21,7 +21,7 @@ export const NavLinkStyled = styled(NavLink)`
   }
 `;
 export const NavLinkNotFound = styled(NavLink)`
-  width: 90px;
+  width: 200px;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -30,15 +30,15 @@ export const NavLinkNotFound = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   border: 1px solid transparent;
-  background-color: blue;
+  background-color: #3f51b5;
   color: #fff;
   transition: all 250 linear;
   border-radius: 4px;
   font-size: 20px;
   &:hover {
-    color: blue;
+    color: #3f51b5;
     background-color: #fff;
-    border: 1px solid blue;
+    border: 1px solid #3f51b5;
   }
 `;
 
@@ -53,4 +53,12 @@ export const DivStyled = styled.div`
 export const TextStyled = styled.p`
   font-size: 30px;
   text-align: center;
+  margin: 0px;
+  color: #75726a;
+`;
+export const Numberstyled = styled.p`
+  font-size: 200px;
+  text-align: center;
+  margin: 0px;
+  color: #75726a;
 `;

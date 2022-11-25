@@ -2,20 +2,17 @@ import {
   NavLinkNotFound,
   DivStyled,
   TextStyled,
+  Numberstyled,
 } from 'components/BackBTN/BackBTN.styled';
 
 export default function NotFound() {
   return (
     <DivStyled>
       <div>
-        <img
-          src="https://2fan.ru/upload/000/u1/3/7/805f88fd.jpg"
-          alt="not found"
-          width="500"
-        />
+        <Numberstyled>404</Numberstyled>
         <TextStyled>
-          Oooops, page not found
-          <NavLinkNotFound to="/">to Home</NavLinkNotFound>
+          Not found. Incorrect address or communication problems.
+          <NavLinkNotFound to="/">Home page</NavLinkNotFound>
         </TextStyled>
       </div>
     </DivStyled>

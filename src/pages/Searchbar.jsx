@@ -14,7 +14,9 @@ import { FilmList } from 'components/FilmsList/FilmList';
 
 export default function Searchbar() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(
+    searchParams.get('query') !== '' ? searchParams.get('query') : ''
+  );
   const [searchFilmList, setSearchFilmList] = useState([]);
 
   const handlerInput = e => {

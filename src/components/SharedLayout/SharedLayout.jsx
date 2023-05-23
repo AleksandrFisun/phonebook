@@ -25,7 +25,6 @@ export const SharedLayout = () => {
           </NavList>
         </Nav>
       </Searchbar>
-
       <main>
         <Suspense fallback={<Loader />}>
           <Outlet />

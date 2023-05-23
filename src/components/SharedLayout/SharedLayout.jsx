@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-
+import Loader from 'loader/Loader';
 import {
   Searchbar,
   Link,
@@ -26,7 +26,7 @@ export const SharedLayout = () => {
       </Searchbar>
 
       <main>
-        <Suspense fallback={<div>...Loading</div>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>

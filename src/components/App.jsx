@@ -2,8 +2,9 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 
+import Loader from 'loader/Loader';
 const Home = lazy(() => import('pages/Home'));
-const Contacts = lazy(() => import('pages/Contacts'));
+const Contacts = lazy(() => import('pages/PhoneBook'));
 const NotFound = lazy(() => import('pages/NotFound'));
 
 export const App = () => {
@@ -14,7 +15,7 @@ export const App = () => {
           <Route
             index
             element={
-              <Suspense fallback={<h2>Loading ...</h2>}>
+              <Suspense fallback={<Loader />}>
                 <Home />
               </Suspense>
             }
@@ -22,7 +23,7 @@ export const App = () => {
           <Route
             path="contacts"
             element={
-              <Suspense fallback={<h2>Loading ...</h2>}>
+              <Suspense fallback={<Loader />}>
                 <Contacts />
               </Suspense>
             }
@@ -32,7 +33,7 @@ export const App = () => {
         <Route
           path="*"
           element={
-            <Suspense fallback={<h2>Loading ...</h2>}>
+            <Suspense fallback={<Loader />}>
               <NotFound />
             </Suspense>
           }

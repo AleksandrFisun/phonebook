@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListContactWrapper, List } from './ListContact.styled';
-import ItemContact from 'components/phonebook/itemContact/itemContact';
 import { useSelector } from 'react-redux';
+import ItemContact from 'components/phonebook/itemContact/itemContact';
 
 export const ListContact = () => {
   const contacts = useSelector(state => state.contacts.items);

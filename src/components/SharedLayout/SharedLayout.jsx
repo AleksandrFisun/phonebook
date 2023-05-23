@@ -20,7 +20,7 @@ export const SharedLayout = () => {
               <Link to="/">Home</Link>
             </NavItem>
             <NavItem>
-              <Link to="/book-contacts">Book contacts</Link>
+              <Link to="/phone-book">Phone Book</Link>
             </NavItem>
           </NavList>
         </Nav>

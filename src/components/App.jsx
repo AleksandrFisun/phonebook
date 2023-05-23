@@ -24,7 +24,7 @@ export const App = () => {
             }
           />
           <Route
-            path="book-contacts"
+            path="phone-book"
             element={
               <Suspense fallback={<Loader />}>
                 <Contacts />

@@ -1,26 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { nanoid } from 'nanoid';
 
 const initialState = {
-  value: 0,
+  contacts: [],
+  filter: '',
 };
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const contactSlice = createSlice({
+  name: 'contact',
   initialState,
   reducers: {
-    increment: state => {
-      state.value += 1;
+    addContact(state, { payload: { name, number } }) {
+      state.contacts = [
+        ...state.contacts,
+        {
+          id: nanoid(),
+          name,
+          number,
+        },
+      ];
     },
-    decrement: state => {
-      state.value -= 1;
+    deleteContact(state, action) {
+      state.contacts = state.contacts.filter(
+        contact => contact.id !== action.payload
+      );
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    filterContact(state, action) {
+      state.contacts = state.contacts.filter(contact =>
+        contact.name.toLowerCase().includes(action.payload.toLowerCase())
+      );
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { addContact, deleteContact, filterContact } =
+  contactSlice.actions;
 
-export default counterSlice.reducer;
+export default contactSlice;

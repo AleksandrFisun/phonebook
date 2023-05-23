@@ -6,25 +6,35 @@ import {
   Span,
   ButtonDel,
 } from './ListContact.styled';
-export const ListContact = ({ contacts, onClick }) => {
+import { deleteContact } from 'redux/features/contacts/contactsSlice';
+import { useSelector, useDispatch } from 'react-redux';
+
+export const ListContact = () => {
+  const selector = useSelector(state => state.contacts);
+  const { contacts } = selector;
+  const dispatch = useDispatch();
+
   return (
     <ListContactWrapper>
       <h2>List Contacts</h2>
-      {contacts.map(({ id, name, number }) => (
-        <List key={id}>
-          <Item>
-            <Span>{name}</Span>
-          </Item>
-          <Item>
-            <Span>{number}</Span>
-          </Item>
-          <Item>
-            <div>
-              <ButtonDel onClick={()=> onClick(id)}> Delete</ButtonDel>
-            </div>
-          </Item>
-        </List>
-      ))}
+      {contacts.length > 0 &&
+        contacts.map(({ id, name, number }) => (
+          <List key={id}>
+            <Item>
+              <Span>{name}</Span>
+            </Item>
+            <Item>
+              <Span>{number}</Span>
+            </Item>
+            <Item>
+              <div>
+                <ButtonDel onClick={() => dispatch(deleteContact(id))}>
+                  Delete
+                </ButtonDel>
+              </div>
+            </Item>
+          </List>
+        ))}
     </ListContactWrapper>
   );
 };

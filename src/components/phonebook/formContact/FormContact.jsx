@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
-import { addContact } from 'redux/actions/contactsActions';
-
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/actions/contactsActions';
+import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
@@ -39,10 +38,6 @@ export const FormContact = () => {
       );
     }
     dispatch(addContact({ id: nanoid(), name, number }));
-    reset();
-  };
-
-  const reset = () => {
     setName('');
     setNumber('');
   };
@@ -78,7 +73,6 @@ export const FormContact = () => {
           required
         />
       </WrapperLabelInput>
-
       <Button type="submit">Add contact</Button>
     </Form>
   );

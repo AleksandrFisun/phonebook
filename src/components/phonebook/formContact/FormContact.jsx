@@ -11,7 +11,7 @@ export const FormContact = () => {
   const [number, setNumber] = useState('');
 
   const selector = useSelector(state => state.contacts.items);
-  const nameFilter = selector.map(el => el.name === name);
+  const nameFilter = selector.filter(el => el.name === name.toLowerCase());
   const dispatch = useDispatch();
 
   let contactNameId = nanoid();
@@ -32,7 +32,8 @@ export const FormContact = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    if (nameFilter) {
+    console.log(nameFilter.length > 0);
+    if (nameFilter.length > 0) {
       return toast.warn(
         '💩 There is already a contact with that name. Correct the entered name!'
       );

@@ -1,13 +1,11 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout/SharedLayout ';
-import { Cast } from './Cast/Cast';
-import { Review } from './Review/Review';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 
-const NotFound = lazy(() => import('pages/NotFound'));
-const Searchbar = lazy(() => import('pages/Searchbar'));
-const MovieView = lazy(() => import('pages/MovieView'));
 const Home = lazy(() => import('pages/Home'));
+const Contacts = lazy(() => import('pages/Contacts'));
+const NotFound = lazy(() => import('pages/NotFound'));
+
 export const App = () => {
   return (
     <div>
@@ -22,24 +20,13 @@ export const App = () => {
             }
           />
           <Route
-            path="/movies"
+            path="contacts"
             element={
               <Suspense fallback={<h2>Loading ...</h2>}>
-                <Searchbar />
+                <Contacts />
               </Suspense>
             }
           />
-          <Route
-            path="/movies/:movieId"
-            element={
-              <Suspense fallback={<h2>Loading ...</h2>}>
-                <MovieView />
-              </Suspense>
-            }
-          >
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Review />} />
-          </Route>
         </Route>
 
         <Route

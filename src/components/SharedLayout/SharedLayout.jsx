@@ -8,7 +8,7 @@ import {
   Nav,
   NavList,
   NavItem,
-} from 'components/sharedLayout/SharedLayout.style';
+} from 'components/SharedLayout/SharedLayout.style';
 
 export const SharedLayout = () => {
   return (

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
-import { addContact } from 'redux/features/contacts/contactsSlice';
-import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/actions/contactsActions';
+
+import { toast } from 'react-toastify';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
+  const selector = useSelector(state => state.contacts.items);
+  const nameFilter = selector.map(el => el.name === name);
   const dispatch = useDispatch();
-
 
   let contactNameId = nanoid();
   let contactNumberId = nanoid();
@@ -29,8 +32,12 @@ export const FormContact = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(addContact({ name, number }));
-
+    if (nameFilter) {
+      return toast.warn(
+        '💩 There is already a contact with that name. Correct the entered name!'
+      );
+    }
+    dispatch(addContact({ id: nanoid(), name, number }));
     reset();
   };
 

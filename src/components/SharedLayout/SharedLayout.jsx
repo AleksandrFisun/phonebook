@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+
 import Loader from 'loader/Loader';
 import {
   Searchbar,
@@ -7,7 +8,7 @@ import {
   Nav,
   NavList,
   NavItem,
-} from 'components/SharedLayout/SharedLayout.style';
+} from 'components/sharedLayout/SharedLayout.style';
 
 export const SharedLayout = () => {
   return (
@@ -19,7 +20,7 @@ export const SharedLayout = () => {
               <Link to="/">Home</Link>
             </NavItem>
             <NavItem>
-              <Link to="/contacts">Book contacts</Link>
+              <Link to="/book-contacts">Book contacts</Link>
             </NavItem>
           </NavList>
         </Nav>

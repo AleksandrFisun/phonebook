@@ -1,8 +1,30 @@
-import { configureStore } from '@reduxjs/toolkit';
-import contactSlice from 'redux/features/contacts/contactsSlice';
+import {
+  configureStore,
+  combineReducers,
+  getDefaultMiddleware,
+} from '@reduxjs/toolkit';
+import { persistStore, persistReducer, PERSIST } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import phonebookReducer from 'redux/reducers/contactsReducer';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const rootReducer = combineReducers({
+  contacts: phonebookReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    contacts: contactSlice.reducer,
-  },
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [PERSIST],
+    },
+  }),
 });
+
+export const persistor = persistStore(store);

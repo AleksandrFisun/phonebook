@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/actions/contactsActions';
+import { addContact, getPhoneBookItems } from 'redux/contactsSlice';
 import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const selector = useSelector(state => state.contacts.items);
+  const selector = useSelector(getPhoneBookItems);
   const nameFilter = selector.filter(el => el.name === name.toLowerCase());
+
   const dispatch = useDispatch();
 
   let contactNameId = nanoid();
@@ -31,7 +32,7 @@ export const FormContact = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
-    console.log(nameFilter.length > 0);
+
     if (nameFilter.length > 0) {
       return toast.warn(
         '💩 There is already a contact with that name. Correct the entered name!'

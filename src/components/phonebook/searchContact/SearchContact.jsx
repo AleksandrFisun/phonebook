@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { filterContacts } from 'redux/actions/contactsActions';
+import { filterContacts, getPhoneBookFilter } from 'redux/contactsSlice';
 import {
   InputSearchContact,
   WrapperSearchContact,
 } from './SearchContact.style';
 
 export const SearchContact = () => {
-  const filter = useSelector(state => state.contacts.filter);
+  const filter = useSelector(getPhoneBookFilter);
   const dispatch = useDispatch();
   const idSerachContact = nanoid();
 

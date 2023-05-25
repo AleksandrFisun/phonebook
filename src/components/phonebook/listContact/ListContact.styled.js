@@ -19,9 +19,11 @@ export const SpinnerWrapper = styled.span`
 `;
 export const List = styled.ul`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  min-width: 450px;
 `;
 export const Item = styled.li`
   display: flex;

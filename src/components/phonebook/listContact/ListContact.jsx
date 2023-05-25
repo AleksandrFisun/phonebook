@@ -12,7 +12,6 @@ import {
 
 export const ListContact = () => {
   const { data, isFetching } = useGetPhoneBookQuery();
-
   const onFilter = useSelector(state => state.phoneBookFilter.filter);
   const filteredContacts = data
     ? data.filter(contact =>
@@ -26,14 +25,14 @@ export const ListContact = () => {
         <span>List Contacts</span>
         <SpinnerWrapper>{isFetching && <SpinnerBig />}</SpinnerWrapper>
       </Title>
-      {filteredContacts &&
-        filteredContacts.map(({ id, name, phoneNumber }) => {
-          return (
-            <List key={id}>
-              <ItemContact id={id} name={name} number={phoneNumber} />
-            </List>
-          );
-        })}
+      <List>
+        {filteredContacts &&
+          filteredContacts.map(({ id, name, phoneNumber }) => {
+            return (
+              <ItemContact key={id} id={id} name={name} number={phoneNumber} />
+            );
+          })}
+      </List>
     </ListContactWrapper>
   );
 };

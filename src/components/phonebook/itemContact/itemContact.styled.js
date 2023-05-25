@@ -16,9 +16,10 @@ export const List = styled.ul`
 `;
 export const Item = styled.li`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   min-width: 100px;
   align-items: center;
+  width: 100%;
 `;
 export const Span = styled.span`
   font-size: 20px;
@@ -51,4 +52,7 @@ export const ButtonWrapper = styled.span`
   display: flex;
   justify-content: space-around;
   align-items: center;
+`;
+export const ContactContent = styled.span`
+  margin: 0 10px;
 `;

@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
+import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
 import {
   useGetPhoneBookQuery,
   useAddPhoneBookMutation,
 } from 'redux/services/contactsSlice';
-import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-
   const { data } = useGetPhoneBookQuery();
   const [addPhoneBook] = useAddPhoneBookMutation();
   const filteredContacts = data

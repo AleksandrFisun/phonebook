@@ -38,9 +38,17 @@ export const ButtonDel = styled.button`
   letter-spacing: 3px;
   font-weight: 600;
   color: rgb(82, 79, 78);
-  background: white;
+  background: rgb(100%, 100%, 100%, 1);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 15px;
   transition: all 0.3s ease 0s;
   border: none;
   cursor: pointer;
+  &:disabled {
+    background: rgb(58%, 58%, 58%, 1);
+  }
+`;
+export const ButtonWrapper = styled.span`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 `;

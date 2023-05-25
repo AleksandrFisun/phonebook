@@ -1,10 +1,11 @@
-import { Item, Span, ButtonDel } from './itemContact.styled';
+import { Item, Span, ButtonDel, ButtonWrapper } from './itemContact.styled';
+import { useDeletePhoneBookMutation } from 'redux/services/contactsSlice';
+import SpinnerSmall from 'loader/Spinner';
 import PropTypes from 'prop-types';
 
-import { deleteContact } from 'redux/contactsSlice';
-import { useDispatch } from 'react-redux';
 const ItemContact = ({ name, number, id }) => {
-  const dispatch = useDispatch();
+  const [deletePhoneBook, { isLoading }] = useDeletePhoneBookMutation();
+
   return (
     <>
       <Item id={id}>
@@ -15,8 +16,11 @@ const ItemContact = ({ name, number, id }) => {
       </Item>
       <Item>
         <div>
-          <ButtonDel onClick={() => dispatch(deleteContact(id))}>
-            Delete
+          <ButtonDel onClick={() => deletePhoneBook(id)} disabled={isLoading}>
+            <ButtonWrapper>
+              {isLoading && <SpinnerSmall />}
+              <span>Delete</span>
+            </ButtonWrapper>
           </ButtonDel>
         </div>
       </Item>

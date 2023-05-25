@@ -8,6 +8,15 @@ export const ListContactWrapper = styled.div`
   margin: 10px auto;
   padding: 10px;
 `;
+export const Title = styled.h2`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const SpinnerWrapper = styled.span`
+  width: 32px;
+  height: 32px;
+`;
 export const List = styled.ul`
   display: flex;
   justify-content: space-between;

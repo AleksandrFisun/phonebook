@@ -1,18 +1,25 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact, getPhoneBookItems } from 'redux/contactsSlice';
+import {
+  useGetPhoneBookQuery,
+  useAddPhoneBookMutation,
+} from 'redux/services/contactsSlice';
 import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
-  const selector = useSelector(getPhoneBookItems);
-  const nameFilter = selector.filter(el => el.name === name.toLowerCase());
-
-  const dispatch = useDispatch();
+  const { data } = useGetPhoneBookQuery();
+  const [addPhoneBook] = useAddPhoneBookMutation();
+  const filteredContacts = data
+    ? data.filter(contact =>
+        contact.name
+          ? contact.name.toLowerCase().includes(name.toLowerCase())
+          : data
+      )
+    : data;
 
   let contactNameId = nanoid();
   let contactNumberId = nanoid();
@@ -24,22 +31,23 @@ export const FormContact = () => {
         setName(value);
         break;
       case 'number':
-        setNumber(value);
+        setPhoneNumber(value);
         break;
       default:
-        break;
     }
   };
+
   const onSubmit = e => {
     e.preventDefault();
-    if (nameFilter.length > 0) {
+    if (filteredContacts.length > 0) {
       return toast.warn(
         '💩 There is already a contact with that name. Correct the entered name!'
       );
     }
-    dispatch(addContact({ id: nanoid(), name, number }));
+    addPhoneBook({ name, phoneNumber });
+    toast.success(`💪 Contact (${name}) added successfully !`);
     setName('');
-    setNumber('');
+    setPhoneNumber('');
   };
 
   return (
@@ -63,7 +71,7 @@ export const FormContact = () => {
         <label htmlFor={contactNumberId}>Number</label>
         <Input
           onChange={onChange}
-          value={number}
+          value={phoneNumber}
           type="tel"
           name="number"
           id={contactNumberId}

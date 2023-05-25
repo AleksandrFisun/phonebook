@@ -1,24 +1,36 @@
 import React from 'react';
-import { ListContactWrapper, List } from './ListContact.styled';
 import { useSelector } from 'react-redux';
+import { useGetPhoneBookQuery } from 'redux/services/contactsSlice';
 import ItemContact from 'components/phonebook/itemContact/itemContact';
+import SpinnerBig from 'loader/Spinner';
+import {
+  ListContactWrapper,
+  List,
+  Title,
+  SpinnerWrapper,
+} from './ListContact.styled';
 
 export const ListContact = () => {
-  const contacts = useSelector(state => state.phonebook.items);
-  const filter = useSelector(state => state.phonebook.filter.toLowerCase());
-  const filteredContacts = contacts.filter(contact =>
-    contact.name ? contact.name.toLowerCase().includes(filter) : contacts
-  );
+  const { data, isFetching } = useGetPhoneBookQuery();
+
+  const onFilter = useSelector(state => state.phoneBookFilter.filter);
+  const filteredContacts = data
+    ? data.filter(contact =>
+        contact.name ? contact.name.toLowerCase().includes(onFilter) : data
+      )
+    : data;
 
   return (
     <ListContactWrapper>
-      <h2>List Contacts</h2>
-      {contacts.length <= 0 && <p>No contacts</p>}
-      {contacts.length > 0 &&
-        filteredContacts.map(({ id, name, number }) => {
+      <Title>
+        <span>List Contacts</span>
+        <SpinnerWrapper>{isFetching && <SpinnerBig />}</SpinnerWrapper>
+      </Title>
+      {filteredContacts &&
+        filteredContacts.map(({ id, name, phoneNumber }) => {
           return (
             <List key={id}>
-              <ItemContact id={id} name={name} number={number} />
+              <ItemContact id={id} name={name} number={phoneNumber} />
             </List>
           );
         })}

@@ -32,7 +32,6 @@ export const FormContact = () => {
   };
   const onSubmit = e => {
     e.preventDefault();
-
     if (nameFilter.length > 0) {
       return toast.warn(
         '💩 There is already a contact with that name. Correct the entered name!'

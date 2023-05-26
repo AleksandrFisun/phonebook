@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[415],{415:function(o,e,t){t.r(e);var h=t(184);e.default=function(){return(0,h.jsxs)("h1",{children:["Homework: goit-react-hw-07-phonebook. ",(0,h.jsx)("br",{}),"Go to the page Phone Book."]})}}}]);
+//# sourceMappingURL=415.c54f33a9.chunk.js.map

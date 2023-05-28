@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useGetPhoneBookQuery } from 'Redux/services/contactsSlice';
+import { useGetPhoneBookQuery } from 'redux/services/contactsSlice';
 import ItemContact from 'components/Phonebook/itemContact/itemContact';
 import SpinnerBig from 'Loader/Spinner';
 import {

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import SpinnerSmall from 'Loader/Spinner';
+import SpinnerSmall from 'loader/Spinner';
 import { useDeletePhoneBookMutation } from 'redux/services/contactsSlice';
 import {
   Item,

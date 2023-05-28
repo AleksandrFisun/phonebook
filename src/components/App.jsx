@@ -4,7 +4,7 @@ import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Loader from 'Loader/Loader';
+import Loader from 'loader/Loader';
 
 const HomePage = lazy(() => import('Pages/HomePage'));
 const ContactsPage = lazy(() => import('Pages/PhoneBookPage'));

@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/415.c54f33a9.chunk.js","mappings":"gKAOA,UAPa,WACX,OACE,oEACwC,kBADxC","sources":["pages/Home.jsx"],"sourcesContent":["const Home = () => {\n  return (\n    <h1>\n      Homework: goit-react-hw-07-phonebook. <br></br>Go to the page Phone Book.\n    </h1>\n  );\n};\nexport default Home;\n"],"names":[],"sourceRoot":""}

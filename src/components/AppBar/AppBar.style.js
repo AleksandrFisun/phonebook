@@ -65,7 +65,7 @@ export const Link = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
   &.active {
-    color: white;
-    background-color: orangered;
+    color: #2e2d2d;
+    background-color: #c6ede6;
   }
 `;

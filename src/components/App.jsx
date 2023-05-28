@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout/SharedLayout';
+import { SharedLayout } from './sharedLayout/SharedLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

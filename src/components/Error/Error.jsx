@@ -5,7 +5,7 @@ import {
   ContainerError,
   TitleTextFirst,
   TitleTextLast,
-} from './Error.style';
+} from './Error.style'
 const Error = () => {
   return (
     <SectionError>

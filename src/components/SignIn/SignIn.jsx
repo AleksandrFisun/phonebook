@@ -1,4 +1,4 @@
-import SignInForm from './SignInForm/SignInFrom';
+import SignInForm from './signInForm/SignInFrom';
 import { Section, FormWrapper } from './SignIn.style';
 const SignIn = () => {
   return (

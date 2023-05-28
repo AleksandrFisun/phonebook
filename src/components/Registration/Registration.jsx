@@ -1,4 +1,4 @@
-import RegistrationForm from './registrationForm/RegistrationForm';
+import RegistrationForm from 'components/Registration/registrationForm/RegistrationForm';
 import { Section, FormWrapper } from './Registration.style';
 const Registration = () => {
   return (

@@ -9,7 +9,7 @@ import Loader from 'Loader/Loader';
 const HomePage = lazy(() => import('Pages/HomePage'));
 const ContactsPage = lazy(() => import('Pages/PhoneBookPage'));
 const SignInPage = lazy(() => import('Pages/SignInPage'));
-const SignUpPage = lazy(() => import('Pages/SignUpPage'));
+const RegistrationPage = lazy(() => import('Pages/RegistrationPage'));
 const NotFoundPage = lazy(() => import('Pages/NotFoundPage'));
 
 export const App = () => {
@@ -34,10 +34,10 @@ export const App = () => {
             }
           />
           <Route
-            path="sign-up"
+            path="registration"
             element={
               <Suspense fallback={<Loader />}>
-                <SignUpPage />
+                <RegistrationPage />
               </Suspense>
             }
           />

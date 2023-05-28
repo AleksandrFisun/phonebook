@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { TfiEmail } from 'react-icons/tfi';
 import { RiLockPasswordLine } from 'react-icons/ri';
+import { FiUser } from 'react-icons/fi';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -35,6 +36,14 @@ export const InputContainer = styled.div`
   &:hover {
     border: 1px solid #b3b3b3;
   }
+`;
+export const User = styled(FiUser)`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-left: 10px;
+  transform: translate(-0, -50%);
+  color: #b3b3b3;
 `;
 export const Email = styled(TfiEmail)`
   position: absolute;

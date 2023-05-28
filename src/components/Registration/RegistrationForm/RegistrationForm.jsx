@@ -8,17 +8,35 @@ import {
   Input,
   Label,
   InputContainer,
+  User,
   Email,
   Password,
-} from './SignInForm.style';
-const SignInForm = () => {
+} from './RegistrationForm.style';
+const RegistrationForm = () => {
+  let contactNameId = nanoid();
   let contactEmailId = nanoid();
   let contactPasswordId = nanoid();
+
   return (
     <>
-      <h2>Sign In</h2>
+      <h2>Registartion</h2>
       <Form>
         <div>
+          <InputWrapper>
+            <Label htmlFor={contactNameId}>Name</Label>
+            <InputContainer>
+              <User />
+              <Input
+                type="text"
+                name="name"
+                id={contactNameId}
+                placeholder="Name"
+                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                required
+              />
+            </InputContainer>
+          </InputWrapper>
           <InputWrapper>
             <Label htmlFor={contactEmailId}>Email</Label>
             <InputContainer>
@@ -49,13 +67,13 @@ const SignInForm = () => {
             </InputContainer>
           </InputWrapper>
         </div>
-        <Button type="submit">Sign In</Button>
+        <Button type="submit">Registration</Button>
       </Form>
       <div>
-        <span>New to Air Contact? Go to </span>
-        <NavigateLink to="/registration">Registration</NavigateLink>
+        <span>Already registered? Go to</span>
+        <NavigateLink to="/sign-in">Sign In</NavigateLink>
       </div>
     </>
   );
 };
-export default SignInForm;
+export default RegistrationForm;

@@ -1,8 +1,8 @@
 const Home = () => {
   return (
-    <h1>
+    <section>
       Homework: goit-react-hw-07-phonebook. <br></br>Go to the page Phone Book.
-    </h1>
+    </section>
   );
 };
 export default Home;

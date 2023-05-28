@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useGetPhoneBookQuery } from 'redux/services/contactsSlice';
-import ItemContact from 'components/phonebook/itemContact/itemContact';
-import SpinnerBig from 'loader/Spinner';
+import { useGetPhoneBookQuery } from 'Redux/services/contactsSlice';
+import ItemContact from 'components/Phonebook/itemContact/itemContact';
+import SpinnerBig from 'Loader/Spinner';
 import {
   ListContactWrapper,
   List,

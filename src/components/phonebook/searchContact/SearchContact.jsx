@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { filterContacts } from 'redux/services/contactsSlice';
+import { filterContacts } from 'Redux/services/contactsSlice';
 import {
   InputSearchContact,
   WrapperSearchContact,

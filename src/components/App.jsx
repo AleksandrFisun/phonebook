@@ -4,11 +4,13 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Loader from 'loader/Loader';
+import Loader from 'Loader/Loader';
 
-const Home = lazy(() => import('pages/Home'));
-const Contacts = lazy(() => import('pages/PhoneBook'));
-const NotFound = lazy(() => import('pages/NotFound'));
+const HomePage = lazy(() => import('Pages/HomePage'));
+const ContactsPage = lazy(() => import('Pages/PhoneBookPage'));
+const SignInPage = lazy(() => import('Pages/SignInPage'));
+const SignUpPage = lazy(() => import('Pages/SignUpPage'));
+const NotFoundPage = lazy(() => import('Pages/NotFoundPage'));
 
 export const App = () => {
   return (
@@ -19,7 +21,23 @@ export const App = () => {
             index
             element={
               <Suspense fallback={<Loader />}>
-                <Home />
+                <HomePage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="sign-in"
+            element={
+              <Suspense fallback={<Loader />}>
+                <SignInPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="sign-up"
+            element={
+              <Suspense fallback={<Loader />}>
+                <SignUpPage />
               </Suspense>
             }
           />
@@ -27,7 +45,7 @@ export const App = () => {
             path="phone-book"
             element={
               <Suspense fallback={<Loader />}>
-                <Contacts />
+                <ContactsPage />
               </Suspense>
             }
           />
@@ -37,7 +55,7 @@ export const App = () => {
           path="*"
           element={
             <Suspense fallback={<Loader />}>
-              <NotFound />
+              <NotFoundPage />
             </Suspense>
           }
         />

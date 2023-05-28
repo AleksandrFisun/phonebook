@@ -5,7 +5,7 @@ import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
 import {
   useGetPhoneBookQuery,
   useAddPhoneBookMutation,
-} from 'redux/services/contactsSlice';
+} from 'Redux/services/contactsSlice';
 
 export const FormContact = () => {
   const [name, setName] = useState('');

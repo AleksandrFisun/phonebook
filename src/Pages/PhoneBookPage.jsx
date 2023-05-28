@@ -1,10 +1,10 @@
-import PhoneBook from 'components/phonebook/PhoneBook';
+import PhoneBook from 'components/Phonebook/PhoneBook';
 
 const Contacts = () => {
   return (
-    <div>
+    <>
       <PhoneBook />
-    </div>
+    </>
   );
 };
 export default Contacts;

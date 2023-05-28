@@ -18,7 +18,22 @@ export const Searchbar = styled.header`
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `;
-
+export const LogotypeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const LogotyImg = styled.img`
+  width: 60px;
+  height: 60px;
+`;
+export const LogotypeText = styled.span`
+  font-family: 'Pacifico', cursive;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
+`;
 export const Nav = styled.nav`
   display: flex;
   justify-content: left;

@@ -1,8 +1,9 @@
-const Home = () => {
+import Home from 'components/Home/Home';
+const HomePage = () => {
   return (
-    <section>
-      Homework: goit-react-hw-07-phonebook. <br></br>Go to the page Phone Book.
-    </section>
+    <>
+      <Home />
+    </>
   );
 };
-export default Home;
+export default HomePage;

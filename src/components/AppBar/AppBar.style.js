@@ -42,6 +42,7 @@ export const Nav = styled.nav`
 `;
 export const NavList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   justify-content: right;
   align-items: center;
   list-style: none;
@@ -68,4 +69,52 @@ export const Link = styled(NavLink)`
     color: #2e2d2d;
     background-color: #c6ede6;
   }
+`;
+export const UserProfile = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-end;
+  border-radius: 4px;
+  border: 1px solid #1e1e1e;
+  padding: 16px;
+`;
+export const UserInfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+export const UserImg = styled.img`
+  width: 30px;
+  height: 30px;
+  padding: 6px;
+  margin-right: 10px;
+`;
+export const ButtonLogOut = styled.button`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 23px;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border: 1px solid #2e2d2d;
+  border-radius: 4px;
+  background-color: #2e2d2d;
+  color: #c6ede6;
+  cursor: pointer;
+  transition-duration: 0.25s;
+  &:hover,
+  &:focus {
+    border: 1px solid #c6ede6;
+    background-color: #c6ede6;
+    color: #2e2d2d;
+    box-shadow: inset 0 0 0 1px #2e2d2d;
+  }
+`;
+export const UserText = styled.span`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
 `;

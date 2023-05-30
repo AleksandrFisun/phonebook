@@ -1,27 +1,22 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import contactsOperations from 'redux/phoneBook/contactsOperations';
+import { useContacts } from 'hooks';
 import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import { Input, Button, Form, WrapperLabelInput } from './FormContact.styled';
-import {
-  useGetPhoneBookQuery,
-  useAddPhoneBookMutation,
-} from 'redux/services/contactsSlice';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const { data } = useGetPhoneBookQuery();
-  const [addPhoneBook] = useAddPhoneBookMutation();
-  const filteredContacts = data
-    ? data.filter(contact =>
-        contact.name
-          ? contact.name.toLowerCase().includes(name.toLowerCase())
-          : data
-      )
-    : data;
-
+  const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
+  const { item } = useContacts();
   let contactNameId = nanoid();
   let contactNumberId = nanoid();
+  const filteredContacts = item?.filter(
+    contact =>
+      contact.name && contact.name.toLowerCase().includes(name.toLowerCase())
+  );
 
   const onChange = e => {
     const { name, value } = e.currentTarget;
@@ -30,7 +25,7 @@ export const FormContact = () => {
         setName(value);
         break;
       case 'number':
-        setPhoneNumber(value);
+        setNumber(value);
         break;
       default:
     }
@@ -43,10 +38,10 @@ export const FormContact = () => {
         '💩 There is already a contact with that name. Correct the entered name!'
       );
     }
-    addPhoneBook({ name, phoneNumber });
+    dispatch(contactsOperations.createNewContact({ name, number }));
     toast.success(`💪 Contact (${name}) added successfully !`);
     setName('');
-    setPhoneNumber('');
+    setNumber('');
   };
 
   return (
@@ -70,7 +65,7 @@ export const FormContact = () => {
         <label htmlFor={contactNumberId}>Number</label>
         <Input
           onChange={onChange}
-          value={phoneNumber}
+          value={number}
           type="tel"
           name="number"
           id={contactNumberId}

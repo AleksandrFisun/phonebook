@@ -1,6 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useContacts } from 'hooks';
 import { nanoid } from 'nanoid';
-import { filterContacts } from 'redux/services/contactsSlice';
+import { setFilter } from 'redux/phoneBook/contactsSlice';
 import {
   InputSearchContact,
   WrapperSearchContact,
@@ -8,8 +9,8 @@ import {
 
 export const SearchContact = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.phoneBookFilter.filter);
   const idSerachContact = nanoid();
+  const { filter } = useContacts();
 
   return (
     <>
@@ -17,7 +18,7 @@ export const SearchContact = () => {
         <label htmlFor={idSerachContact}>Find contacts by name</label>
         <InputSearchContact
           onChange={e =>
-            dispatch(filterContacts(e.target.value.toLowerCase().trim()))
+            dispatch(setFilter(e.target.value.toLowerCase().trim()))
           }
           value={filter}
           type="text"

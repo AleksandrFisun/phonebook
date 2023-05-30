@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import SpinnerSmall from 'loader/Spinner';
-import { useDeletePhoneBookMutation } from 'redux/services/contactsSlice';
+import { useContacts } from 'hooks';
+import contactsOperations from 'redux/phoneBook/contactsOperations';
+import { useDispatch } from 'react-redux';
 import {
   Item,
   Span,
@@ -10,7 +11,8 @@ import {
 } from './itemContact.styled';
 
 const ItemContact = ({ name, number, id }) => {
-  const [deletePhoneBook, { isLoading }] = useDeletePhoneBookMutation();
+  const { isRefreshing } = useContacts();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -22,9 +24,11 @@ const ItemContact = ({ name, number, id }) => {
           <Span>{number}</Span>
         </ContactContent>
         <ContactContent>
-          <ButtonDel onClick={() => deletePhoneBook(id)} disabled={isLoading}>
+          <ButtonDel
+            onClick={() => dispatch(contactsOperations.deleteContact(id))}
+            disabled={isRefreshing}
+          >
             <ButtonWrapper>
-              {isLoading && <SpinnerSmall />}
               <span>Delete</span>
             </ButtonWrapper>
           </ButtonDel>
